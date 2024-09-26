@@ -1,8 +1,8 @@
-import BotForm from './utils/bot/botform.js';
-import IFTTT from './utils/salvataggio.js';
+import BotForm from 'TaffiTools//bot/botform.js';
+import IFTTT from 'TaffiTools/salvataggio.js';
 import domande from './src/formaccoglienza.js';
-import DialogoForm from './utils/bot/dialogoform.js';
-import { debug } from './utils/utils.js';
+import DialogoForm from 'TaffiTools/bot/dialogoform.js';
+import { debug } from 'TaffiTools/utils.js';
 import cron from "node-cron";
 import dotenv from 'dotenv';
 
@@ -17,7 +17,7 @@ class BotZona extends BotForm {
    * Crea un'istanza di ZonaBot.
    */
   constructor() {
-    const telegramToken = process.env.TELEGRAM_BOT_TOKEN;
+    const telegramToken = process.env.TELEGRAM_ZONABOT_TOKEN;
     const salvataggio = new IFTTT(                        
       'telegram_bot_form_complete', 
       process.env.IFTTT_WEBHOOKKEY
