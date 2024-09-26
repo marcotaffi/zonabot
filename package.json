@@ -1,0 +1,17 @@
+{
+  "name": "BotZona",
+  "version": "1.0.0",
+  "description": "Gestore BOT di zona  by Taffi",
+  "type": "module",
+  "main": "botzona.js",
+  "scripts": {
+    "start": "node botzona.js > botzona.log 2>&1 &"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "dotenv": "^16.4.5",
+    "grammy": "^1.27.0",
+    "node-cron": "^3.0.3",
+    "openai": "^4.53.1"
+  }
+}
