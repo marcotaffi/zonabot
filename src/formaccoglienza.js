@@ -208,7 +208,7 @@ const domande = [
   },
   {   
      nome: "Salvato", //19
-     domandatesto: "Questionario inviato, riceverai la tua richiesta di accoglienza nel più breve tempo possibile.\n\n",        
+     domandatesto: "Questionario inviato, grazie!\n\n",        
      condizioni: null,
   },
 
