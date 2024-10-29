@@ -2,7 +2,7 @@ import BotForm from 'TaffiTools//bot/botform.js';
 import IFTTT from 'TaffiTools/salvataggio.js';
 import domande from './src/formaccoglienza.js';
 import DialogoForm from 'TaffiTools/bot/dialogoform.js';
-import { debug } from 'TaffiTools/utils.js';
+import { debug } from 'TaffiTools/utils/debug.js';
 import cron from "node-cron";
 import dotenv from 'dotenv';
 
