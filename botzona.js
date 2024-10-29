@@ -1,11 +1,11 @@
 import BotForm from 'TaffiTools//bot/botform.js';
 import IFTTT from 'TaffiTools/salvataggio.js';
+import { ProcessManager } from 'TaffiTools/system/ProcessManager.js';
 import domande from './src/formaccoglienza.js';
 import DialogoForm from 'TaffiTools/bot/dialogoform.js';
 import { debug } from 'TaffiTools/utils/debug.js';
 import cron from "node-cron";
 import dotenv from 'dotenv';
-
 dotenv.config();
 //------------------------------------
 
@@ -36,29 +36,7 @@ filtra(ctx) {
   if (ctx?.chat?.type === "supergroup") return false;
    else return true;
 }
-//------------------------------------
-  
-//------------------------------------
 
-  /**
-   * Funzione per mostrare la domanda. Se isWarning è true mostra solo un avviso effimero.
-   * Mostro il testo solo se non sono in un supergruppo come quello di zona. 
-   * 
-   * IN REALTA' QUESTO CONTROLLO È QUASI SEMPRE RIDONDANTE PERCHE' GUARDO GIA' LA FILTRA QUANDO RICEVO UN TESTO
-   */
-  /*
-  async mostraDomanda(ctx, testo, isWarning) {
-   // debug(3,"botzona.mostraDomanda");
-
-    if (this.filtra(ctx)) { //filtro non rispondendo ai messaggi dei supergruppi come quello di zona.
-      try {
-         if (isWarning) ctx.answerCallbackQuery(testo);
-          else await super.mostraDomanda(ctx, testo);
-      }
-      catch(error) { debug(1, error); }  
-    }
-   }
-  */
 //------------------------------------
 
   /**
@@ -89,7 +67,14 @@ const messaggio =
  */
 (async () => {
   try {
+    const DEBUG_LEVEL = process.env.DEBUG_LEVEL;
+    ProcessManager.getInstance().setup(this, DEBUG_LEVEL);
+   
+
+
     debug(0,"Avvio il server...")
+    debug(0, "debug level:", DEBUG_LEVEL);
+
     const botZona = new BotZona();
     botZona.start();
    // botZona.inviaMessaggioPeriodico(); //invio all'inizio COMMENTARE SE NON SERVE
